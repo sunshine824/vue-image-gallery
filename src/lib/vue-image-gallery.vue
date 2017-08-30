@@ -13,7 +13,7 @@
         <transition name="list">
             <div class="mask" v-show="isShow">
                 <p @click="hide" class="hide">
-
+                    <img :src="icon"/>
                 </p>
                 <div class="swipe" @touchstart="touchstart" @touchend="touchend">
                     <ul class="img-content" ref="imgs" :style="{width:banner.length*100+'%'}">
@@ -32,7 +32,7 @@
 </template>
 <script>
     export default {
-        name:'vue-image-gallery',
+        name: 'vue-image-gallery',
         props: {
             banner: {
                 type: Array,
@@ -41,6 +41,10 @@
             distanceMin: {
                 type: Number,
                 default: 30
+            },
+            icon: {
+                type: String,
+                default: '../../dist/xiangxia.png'
             }
         },
         data() {
@@ -145,12 +149,9 @@
         .hide {
             margin: .3rem .2rem;
             display: block;
-            &:before{
-                content: "";
-                display: block;
-                background: url('../assets/xiangxia.png') no-repeat;
-                height: 33px;
-                background-size: 36px;
+            width: 36px;
+            img{
+                width: 100%;
             }
         }
         .swipe {
