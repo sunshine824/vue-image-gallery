@@ -3,7 +3,7 @@
 A picture gallery plugin
 一个图片画廊组件
 
-## demo演示
+## [demo演示](https://sunshine824.github.io/vue-image-gallery/)
 
 [demo](https://sunshine824.github.io/vue-image-gallery/)
 ![二维码](https://github.com/sunshine824/vue-image-gallery/blob/master/src/erweima.png)
