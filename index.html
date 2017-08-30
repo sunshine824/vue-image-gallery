@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>vue-image-gallery</title>
-  </head>
-  <body>
-    <div id="app">
-      <vue-image-gallery :banner="banner" :distanceMin="distanceMin"></vue-image-gallery>
-    </div>
+</head>
+<body>
+<div id="app">
+    <vue-image-gallery :banner="banner" :distanceMin="distanceMin" :icon="icons"></vue-image-gallery>
+</div>
 
 
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script src="./dist/vue-image-gallery.js"></script>
-    <script src="./src/lib/prefixfree.js"></script>
-  </body>
+<script src="https://unpkg.com/vue"></script>
+<script src="./vue-image-gallery.js"></script>
+</body>
 <script>
-  new Vue({
-      el:'#app',
-      data(){
-          return{
-              banner:['http://img1.imgtn.bdimg.com/it/u=950408042,948824975&fm=11&gp=0.jpg','http://img3.imgtn.bdimg.com/it/u=4109419760,2883302339&fm=11&gp=0.jpg','http://img0.imgtn.bdimg.com/it/u=2212695692,2311176260&fm=26&gp=0.jpg'],
-              distanceMin:10
-          }
-      }
-  })
+    new Vue({
+        el:'#app',
+        data(){
+            return{
+                banner:['http://img1.imgtn.bdimg.com/it/u=950408042,948824975&fm=11&gp=0.jpg','http://img3.imgtn.bdimg.com/it/u=4109419760,2883302339&fm=11&gp=0.jpg','http://img0.imgtn.bdimg.com/it/u=2212695692,2311176260&fm=26&gp=0.jpg'],
+                distanceMin:10,
+                icons:'./xiangxia.png'
+            }
+        }
+    })
 </script>
 </html>
