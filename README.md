@@ -3,6 +3,9 @@
 A picture gallery plugin
 一个图片画廊组件
 
+## demo演示
+
+[demo](https://sunshine824.github.io/vue-image-gallery/)
 
 ## 安装
 
