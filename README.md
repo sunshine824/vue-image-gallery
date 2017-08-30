@@ -6,6 +6,7 @@ A picture gallery plugin
 ## demo演示
 
 [demo](https://sunshine824.github.io/vue-image-gallery/)
+![二维码](https://github.com/sunshine824/vue-image-gallery/blob/master/src/erweima.png)
 
 ## 安装
 
