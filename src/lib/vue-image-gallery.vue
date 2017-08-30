@@ -12,9 +12,9 @@
 
         <transition name="list">
             <div class="mask" v-show="isShow">
-                <span @click="hide" class="hide">
-                    <img src="../assets/xiangxia.png"/>
-                </span>
+                <p @click="hide" class="hide">
+
+                </p>
                 <div class="swipe" @touchstart="touchstart" @touchend="touchend">
                     <ul class="img-content" ref="imgs" :style="{width:banner.length*100+'%'}">
                         <li v-for="(item,index) in banner" :key="index" :style="{width:100/banner.length+'%'}">
@@ -143,11 +143,14 @@
             top: calc(100vh);
         }
         .hide {
-            width: 36px;
             margin: .3rem .2rem;
             display: block;
-            img{
-                width: 100%;
+            &:before{
+                content: "";
+                display: block;
+                background: url('../assets/xiangxia.png') no-repeat;
+                height: 33px;
+                background-size: 36px;
             }
         }
         .swipe {
