@@ -10,7 +10,7 @@ A picture gallery plugin
 ## 安装
 
 ```JS
-npm install vue-image-gallery -S
+npm install vue-image-gallery --save
 ```
 
 ## 使用
