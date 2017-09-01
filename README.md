@@ -37,7 +37,7 @@ Vue.use(vueImageGallery)
 ```javascript
 data () {
       return {
-        banner:['http://img1.imgtn.bdimg.com/it/u=950408042,948824975&fm=11&gp=0.jpg','http://img3.imgtn.bdimg.com/it/u=4109419760,2883302339&fm=11&gp=0.jpg','http://img0.imgtn.bdimg.com/it/u=2212695692,2311176260&fm=26&gp=0.jpg'],
+        banner:['https://unsplash.it/458/354?image=0','https://unsplash.it/458/354?image=1','https://unsplash.it/458/354?image=3'],
         distanceMin:10,
         icon:'xxxx.png'
       }
@@ -48,7 +48,7 @@ data () {
 
 |    name    |    Description   |   type   |default|
 | -----------------  | ---------------- | :--------: | :----------: |
-| banner       | 图片集合 |Array| []
+| banner       | 图片集合 |Array| [ ]
 | distanceMin        | 最小滚动距离 |Number | 30
 | icon        | 下拉图标 |String |
 
