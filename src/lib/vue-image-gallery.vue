@@ -4,7 +4,7 @@
             <li class="item" v-for="(item,index) in banner" :key="index" @click="selectOne(index)">
                 <div class="am-gallery-item">
                   <span>
-                    <img :src="item"/>
+                    <img :src="item.url"/>
                   </span>
                 </div>
             </li>
@@ -18,12 +18,14 @@
                 <div class="swipe" @touchstart="touchstart" @touchend="touchend">
                     <ul class="img-content" ref="imgs" :style="{width:banner.length*100+'%'}">
                         <li v-for="(item,index) in banner" :key="index" :style="{width:100/banner.length+'%'}">
-                            <img :src="item"/>
+                            <img :src="item.url"/>
                         </li>
                     </ul>
                 </div>
                 <div class="img-current">
-                    <div class="contents"></div>
+                    <div class="contents">
+                        {{thisContent}}
+                    </div>
                     <p class="current">{{current}}/{{banner.length}}</p>
                 </div>
             </div>
@@ -36,9 +38,11 @@
         props: {
             banner: {
                 type: Array,
-                default: []
+                default: [
+
+                ]
             },
-            distanceMin: {
+            distance_min: {
                 type: Number,
                 default: 30
             },
@@ -49,7 +53,13 @@
         },
         data() {
             return {
-                //banner: ['../static/banner1.jpg', '../static/banner2.jpg', '../static/banner3.jpg', '../static/banner4.jpg', '../static/banner5.jpg'],
+                /*banner:[
+                    {url:'https://unsplash.it/458/354?image=0',content:'这是一个张图片'},
+                    {url:'https://unsplash.it/458/354?image=1',content:'这是二个张图片'},
+                    {url:'https://unsplash.it/458/354?image=2',content:'这是三个张图片'},
+                    {url:'https://unsplash.it/458/354?image=3',content:'这是四个张图片'},
+                    {url:'https://unsplash.it/458/354?image=4',content:'这是五个张图片'},
+                ],*/
                 isShow: false,
                 current: 1,
                 count: 0,
@@ -58,8 +68,9 @@
                 windowWith: 0,
                 distance: 0,
                 banlen: 0,
-                //distanceMin: 30,
-                isLoading: true
+                //distance_min: 30,
+                isLoading: true,
+                thisContent: ''
             }
         },
         methods: {
@@ -69,6 +80,7 @@
                 this.swipe = []
                 this.count = index
                 this.isShow = true
+                this.thisContent = this.banner[this.count].content
             },
             touchstart(e) {
                 this.startTX = e.touches[0].clientX
@@ -80,18 +92,19 @@
                 this.distance = this.endTX - this.startTX
                 this.banlen = this.banner.length
 
-                if (this.distance < 0 && Math.abs(this.distance) > this.distanceMin) {
+                if (this.distance < 0 && Math.abs(this.distance) > this.distance_min) {
                     const banLen = this.banlen
                     this.count = this.count + 1 >= banLen ? banLen - 1 : this.count + 1
                     this.current = this.current + 1 >= banLen ? banLen : this.current + 1
                     const imgs = this.$refs.imgs
                     imgs.style.marginLeft = -(this.count * 100) + '%'
-                } else if (this.distance > 0 && Math.abs(this.distance) > this.distanceMin) {
+                } else if (this.distance > 0 && Math.abs(this.distance) > this.distance_min) {
                     this.count = this.count - 1 <= 0 ? 0 : this.count - 1
                     this.current = this.current - 1 <= 0 ? 1 : this.current - 1
                     const imgs = this.$refs.imgs
                     imgs.style.marginLeft = -(this.count * 100) + '%'
                 }
+                this.thisContent = this.banner[this.count].content
             },
             hide() {
                 this.isShow = false
@@ -150,16 +163,18 @@
             margin: .3rem .2rem;
             display: block;
             width: 36px;
-            img{
+            img {
                 width: 100%;
             }
         }
         .swipe {
             width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -45%;
         }
         .img-content {
             width: 500%;
-            margin-top: 2.5rem;
             transition: all 0.2s linear;
             li {
                 float: left;
@@ -171,11 +186,18 @@
             }
         }
         .img-current {
-            position: absolute;
-            bottom: 10px;
+            position: fixed;
+            bottom: 36px;
             right: 10px;
+            width: 100%;
             .contents {
                 float: left;
+                color: #fff;
+                margin-left: 45px;
+                width: 80%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
             .current {
                 float: right;

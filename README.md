@@ -31,13 +31,19 @@ Vue.use(vueImageGallery)
 ### 配置
 
 ```html
-   <vue-image-gallery :banner="banner" :distanceMin="distanceMin" :icon="icon"></vue-image-gallery>
+   <vue-image-gallery :banner="banner" :distance_min="distanceMin" :icon="icon"></vue-image-gallery>
 ```
 
 ```javascript
 data () {
       return {
-        banner:['https://unsplash.it/458/354?image=0','https://unsplash.it/458/354?image=1','https://unsplash.it/458/354?image=3'],
+        banner:[
+                  {url:'https://unsplash.it/458/354?image=0',content:'这是一个张图片'},
+                  {url:'https://unsplash.it/458/354?image=1',content:'这是二个张图片'},
+                  {url:'https://unsplash.it/458/354?image=2',content:'这是三个张图片'},
+                  {url:'https://unsplash.it/458/354?image=3',content:'这是四个张图片'},
+                  {url:'https://unsplash.it/458/354?image=4',content:'这是五个张图片'},
+              ],
         distanceMin:10,
         icon:'xxxx.png'
       }
@@ -48,7 +54,7 @@ data () {
 
 |    name    |    Description   |   type   |default|
 | -----------------  | ---------------- | :--------: | :----------: |
-| banner       | 图片集合 |Array| [ ]
+| banner       | 图片集合 |Array| [ {url:'图片地址', content:'图片相关介绍'} ]
 | distanceMin        | 最小滚动距离 |Number | 30
 | icon        | 下拉图标 |String |
 
